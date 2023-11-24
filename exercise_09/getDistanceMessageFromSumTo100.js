@@ -6,6 +6,26 @@
  * output: string
  */
 
+/*
+ * Generates a rounded random number within a specified range.
+ *  @param {number} limit - The upper limit for the random number (exclusive).
+ *  @param {number} value - The value to be summed with the random number.
+ *  @returns {number} - The generated random number.
+ */
+import generateRandomNumberInRange from "../exercise_03/generateRandomNumberInRange.js";
+
+const getDistanceMessageFromSumTo100 = function (value) {
+  const randomNumber = generateRandomNumberInRange(100);
+  const sum = value + randomNumber;
+
+  if (sum > 100) {
+    return `Sum with value ${sum} exceeds in ${sum - 100} from number 100`;
+  }
+  if (sum < 100) {
+    return `Sum with value ${sum} is left in ${100 - sum} from number 100`;
+  }
+};
+export default getDistanceMessageFromSumTo100;
 /**
  * CASE #1
  * input: 70
