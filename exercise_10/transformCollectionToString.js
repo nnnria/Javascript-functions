@@ -23,18 +23,7 @@
 import checkCollectionHasElements from "../exercise_06/checkCollectionHasElements.js";
 
 const transformCollectionToString = function (collection) {
-  if (checkCollectionHasElements(collection)) {
-    return collection.join(" | ");
-  }
-  return "";
+  return checkCollectionHasElements(collection) ? collection.join(" | ") : "";
 };
-export default transformCollectionToString;
 
-/**
- * 
-const transformCollectionToString = function (collection) {
-   if (checkCollectionHasElements(collection)) ? collection.join(" | ") : ""; {
-return collection.join(" | ");
-   }
-}
- */
+export default transformCollectionToString;

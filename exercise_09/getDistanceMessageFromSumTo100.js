@@ -8,24 +8,12 @@
 
 /*
  * Generates a rounded random number within a specified range.
- *  @param {number} limit - The upper limit for the random number (exclusive).
- *  @param {number} value - The value to be summed with the random number.
- *  @returns {number} - The generated random number.
+ * @param {number} limit - The upper limit for the random number (exclusive).
+ * @param {number} value - The value to be summed with the random number.
+ * @param {number} sum - The sum of the random number and the value.
+ * @returns {string} - The message with the sum and the distance from 100.
+ * @returns {number} - The generated random number.
  */
-import generateRandomNumberInRange from "../exercise_03/generateRandomNumberInRange.js";
-
-const getDistanceMessageFromSumTo100 = function (value) {
-  const randomNumber = generateRandomNumberInRange(100);
-  const sum = value + randomNumber;
-
-  if (sum > 100) {
-    return `Sum with value ${sum} exceeds in ${sum - 100} from number 100`;
-  }
-  if (sum < 100) {
-    return `Sum with value ${sum} is left in ${100 - sum} from number 100`;
-  }
-};
-export default getDistanceMessageFromSumTo100;
 /**
  * CASE #1
  * input: 70
@@ -39,3 +27,20 @@ export default getDistanceMessageFromSumTo100;
  * random (generated in function): 40
  * output: "Sum with value 70 isd left in 30 from number 100"
  */
+
+import generateRandomNumberInRange from "../exercise_03/generateRandomNumberInRange.js";
+import isGreaterThan from "../exercise_04/isGreaterThan.js";
+
+const getDistanceMessageFromSumTo100 = function (value) {
+  const randomNumber = generateRandomNumberInRange(100);
+  const limit = isGreaterThan(randomNumber, 100);
+  const sum = value + randomNumber;
+
+  if (limit == true) {
+    return `Sum with value ${sum} exceeds in ${sum - 100} from number 100`;
+  }
+  if (limit == false) {
+    return `Sum with value ${sum} is left in ${100 - sum} from number 100`;
+  }
+};
+export default getDistanceMessageFromSumTo100;
