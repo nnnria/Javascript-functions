@@ -1,3 +1,6 @@
+import getTotalWordsFromString from "../exercise_02/getTotalWordsFromString.js";
+import isGreaterThan from "../exercise_04/isGreaterThan.js";
+
 /**
  * Write JS function "formatStringByWordsLength" to check number of words contained in given string
     - if total number of words is greater then 5, then return uppercase string
@@ -18,18 +21,14 @@
 /**Check number of words contained in given string, if total number of words is greater then 5,
  * then return uppercase string, otherwise, return lower case string
  * @param {string} sentence
- * @param {number} totalWords
- * @param {number} limit
- * @returns {string} sentenceOutput
+ * @returns {string}
  */
-import getTotalWordsFromString from "../exercise_02/getTotalWordsFromString.js";
-import isGreaterThan from "../exercise_04/isGreaterThan.js";
 
 const formatStringByWordsLength = function (sentence) {
   const totalWords = getTotalWordsFromString(sentence);
-  const limit = isGreaterThan(totalWords, 5);
+  const exeeds = isGreaterThan(totalWords, 5);
 
-  return limit > totalWords ? sentence.toUpperCase() : sentence.toLowerCase();
+  return exeeds ? sentence.toUpperCase() : sentence.toLowerCase();
 };
 
 export default formatStringByWordsLength;
